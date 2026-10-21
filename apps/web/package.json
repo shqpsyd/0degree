@@ -14,7 +14,13 @@
     "@zaitu/design-system": "*",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "lucide-react": "^0.468.0"
+    "lucide-react": "^0.468.0",
+    "@zaitu/plugin-mood": "*",
+    "@zaitu/plugin-meal": "*",
+    "@zaitu/plugin-nutrition": "*",
+    "@zaitu/plugin-leisure": "*",
+    "@zaitu/plugin-reading": "*",
+    "@zaitu/plugin-fire": "*"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.7.0",
