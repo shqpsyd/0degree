@@ -1,0 +1,20 @@
+.meal-view h2, .meal-view h3, .meal-view h4, .meal-view h5, .meal-view p { margin: 0; }
+.meal-view header { display: grid; gap: 8px; }
+.meal-layout { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 24px; align-items: start; }
+.meal-layout > *, .meal-fields { min-width: 0; }
+.meal-fields { border: 0; padding: 0; margin: 0; }
+.meal-fields textarea { resize: vertical; }
+.meal-plan-heading { justify-content: space-between; }
+.meal-card { padding: 20px; }
+.meal-number { color: var(--primary); font-size: 13px; font-weight: 700; }
+.meal-dish { font-size: 18px; line-height: 1.5; overflow-wrap: anywhere; }
+.meal-copy { line-height: 1.8; white-space: pre-wrap; overflow-wrap: anywhere; }
+.meal-alternative { border-top: 1px solid var(--line); padding-top: 14px;
+  display: grid; gap: 10px; justify-items: start; }
+.meal-empty { padding: 42px 20px; display: grid; gap: 16px; }
+.meal-preview { justify-content: center; }
+.meal-footer { border-top: 1px solid var(--line); padding-top: 18px; font-size: 13px; }
+@media (max-width: 760px) {
+  .meal-layout { grid-template-columns: minmax(0, 1fr); }
+  .meal-card { padding: 16px; }
+}

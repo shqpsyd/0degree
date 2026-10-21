@@ -22,7 +22,9 @@ const plugin: ZaituPlugin = {
 
 插件注册在 `apps/web/src/plugins.ts`；运行时通过 `makeContext` 注入能力。
 
-权限声明：`profile.read`（预留）、`timeline.read`、`timeline.write`、`ai.invoke`。当前仅实现 timeline 与 ai 的代码侧检查，**不是最终用户授权或恶意插件的隔离机制**。不得把该架构描述为已支持安全第三方市场。外部插件未来必须进入 sandbox，并通过 UI 提示授权。
+权限声明：`profile.read`（预留）、`timeline.read`、`timeline.write`、`ai.invoke`。timeline 仅实现代码侧声明检查，**不是最终用户授权或恶意插件的隔离机制**；声明 `timeline.read` 的内置插件可读取全部足迹。`ai.invoke` 另有宿主同意弹窗与可撤销的浏览器授权记录。不得把该架构描述为已支持安全第三方市场。外部插件未来必须进入 sandbox，并通过 UI 提示授权。
+
+宿主使用 `makeContext(plugin, { requestAIConsent })`，卸载时先 `context.dispose()` 再执行插件清理函数。释放后不能发布足迹或调用 AI；已发出的 AI 请求会尝试中止，但不能撤回服务商已接收的数据。`storage.get/set/remove` 按合法插件 id 分隔命名空间，写入和删除失败会抛出可显示错误。插件应处理自身异步任务和事件处理函数中的错误。
 
 事件命名：`<domain>.<past-tense-verb>`，例如 `mood.logged`。固定字段 id/type/source/occurredAt/data。插件数据可能包含敏感信息，事件原则只保存最小必需字段。
 

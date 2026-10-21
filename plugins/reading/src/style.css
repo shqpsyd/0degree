@@ -1,0 +1,20 @@
+.reading-view { gap: 28px; }
+.reading-view h2, .reading-view h3, .reading-view h4, .reading-view p { margin: 0; }
+.reading-view header { display: grid; gap: 10px; }
+.reading-layout { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; align-items: start; }
+.reading-layout > * { min-width: 0; }
+.reading-view textarea { resize: vertical; }
+.reading-result { min-height: 360px; align-content: start; }
+.reading-result > div:first-child { display: grid; gap: 10px; }
+.reading-empty { display: grid; gap: 16px; padding: 24px 0; }
+.reading-empty > span { font-size: 36px; }
+.reading-response { white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.85; }
+.reading-result h4, .reading-result .notice { overflow-wrap: anywhere; }
+.reading-error { color: var(--danger); }
+.reading-clear { justify-self: start; text-align: left; }
+.reading-modes { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 15px; }
+@media (max-width: 1000px) { .reading-modes { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 760px) {
+  .reading-layout, .reading-modes { grid-template-columns: minmax(0, 1fr); }
+  .reading-view .card { padding: 20px; }
+}

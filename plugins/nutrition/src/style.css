@@ -1,0 +1,34 @@
+.nutrition-view h2, .nutrition-view h3, .nutrition-view h4, .nutrition-view p { margin: 0; }
+.nutrition-view header { display: grid; gap: 8px; }
+.nutrition-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: 24px; align-items: start; }
+.nutrition-layout > * { min-width: 0; }
+.nutrition-foods { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.nutrition-food { display: grid; gap: 6px; min-height: 78px; padding: 14px; text-align: left; color: var(--text);
+  background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius-sm); }
+.nutrition-food[aria-pressed="true"] { border-color: var(--primary); background: var(--primary-soft);
+  box-shadow: inset 0 0 0 1px var(--primary); }
+.nutrition-food span { font-size: 12px; }
+.nutrition-portion, .nutrition-explanation { border-top: 1px solid var(--line); padding-top: 20px; }
+.nutrition-summary { background: var(--primary-soft); }
+.nutrition-total { color: var(--primary); font-size: clamp(28px, 4vw, 40px);
+  font-weight: 700; overflow-wrap: anywhere; }
+.nutrition-total span { font-size: 16px; font-weight: 500; }
+.nutrition-table-wrap { min-width: 0; }
+.nutrition-table { width: 100%; border-collapse: collapse; font-size: 14px; font-variant-numeric: tabular-nums; }
+.nutrition-table caption { text-align: left; color: var(--muted); padding-bottom: 10px; }
+.nutrition-table th, .nutrition-table td { padding: 12px 4px; text-align: right;
+  border-bottom: 1px solid var(--line); overflow-wrap: anywhere; }
+.nutrition-table th:first-child { text-align: left; }
+.nutrition-table thead th { font-weight: 500; color: var(--muted); }
+.nutrition-source { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius-sm);
+  padding: 16px; font-size: 14px; line-height: 1.7; }
+.nutrition-error { color: var(--danger); }
+@media (max-width: 760px) {
+  .nutrition-layout { grid-template-columns: minmax(0, 1fr); }
+  .nutrition-summary { padding: 18px; }
+}
+@media (max-width: 400px) {
+  .nutrition-foods { grid-template-columns: minmax(0, 1fr); }
+  .nutrition-table { font-size: 12px; }
+}

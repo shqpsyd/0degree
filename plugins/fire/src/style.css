@@ -1,0 +1,22 @@
+.fire-view { gap: 28px; min-width: 0; }
+.fire-view h2, .fire-view h3, .fire-view h4, .fire-view p { margin: 0; }
+.fire-view header, .fire-view header + div { min-width: 0; }
+.fire-view header { display: grid; gap: 12px; }
+.fire-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px; align-items: start; }
+.fire-summary { background: var(--primary-soft); }
+.fire-total { display: block; margin-top: 12px; font-size: clamp(26px, 4vw, 40px); line-height: 1.3;
+  overflow-wrap: anywhere; font-variant-numeric: tabular-nums; }
+.fire-metrics { margin: 0; display: grid; gap: 16px; }
+.fire-metrics > div { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+.fire-metrics dt { color: var(--muted); }
+.fire-metrics dd { margin: 0; overflow-wrap: anywhere; font-variant-numeric: tabular-nums; }
+.fire-progress { width: 100%; height: 12px; accent-color: var(--primary); }
+.fire-comparison { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 15px; }
+.fire-scenario-value { font-weight: 650; font-size: 20px; overflow-wrap: anywhere; }
+.fire-explanation { border-top: 1px solid var(--line); padding-top: 24px; line-height: 1.7; }
+.fire-error { color: var(--danger); }
+.fire-view input[aria-invalid="true"] { border-color: var(--danger); }
+@media (max-width: 760px) {
+  .fire-layout, .fire-comparison { grid-template-columns: minmax(0, 1fr); }
+  .fire-view .card { padding: 20px; }
+}

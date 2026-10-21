@@ -1,1 +1,80 @@
-:root{font-family:Inter,"PingFang SC","Microsoft YaHei",system-ui,sans-serif;color-scheme:light;--bg:#f5f7f5;--panel:#ffffffdf;--text:#26332f;--muted:#70807a;--line:#e1e9e4;--primary:#2a827b;--primary-soft:#e2f2ef;--shadow:0 14px 40px rgba(40,70,60,.06);--radius:20px}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text)}button,input,textarea{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #5bb5ab;outline-offset:2px}[data-theme="dark"]{color-scheme:dark;--bg:#16201d;--panel:#22302be8;--text:#e9f2ed;--muted:#a0b4a9;--line:#33483e;--primary:#65c0af;--primary-soft:#2c4a41;--shadow:0 15px 45px #0003}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+/* ZAITU design tokens + 基础组件样式。插件只消费这些 token 与类名，不重定义它们。 */
+:root {
+  font-family: Inter, "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  color-scheme: light;
+  --bg: #f5f7f5;
+  --panel: #ffffffdf;
+  --text: #26332f;
+  --muted: #5f6f69;
+  --line: #e1e9e4;
+  --primary: #26776f;
+  --on-primary: #ffffff;
+  --primary-soft: #e2f2ef;
+  --danger: #a8483f;
+  --danger-soft: #f8e6e3;
+  --focus: #5bb5ab;
+  --shadow: 0 14px 40px rgba(40, 70, 60, 0.06);
+  --radius: 20px;
+  --radius-sm: 12px;
+  --space: 8px;
+}
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #16201d;
+  --panel: #22302be8;
+  --text: #e9f2ed;
+  --muted: #a0b4a9;
+  --line: #33483e;
+  --primary: #65c0af;
+  --on-primary: #0f1f1a;
+  --primary-soft: #2c4a41;
+  --danger: #f0a49b;
+  --danger-soft: #4a2c29;
+  --shadow: 0 15px 45px #0003;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); }
+button, input, textarea, select { font: inherit; }
+button { cursor: pointer; }
+button:disabled { cursor: not-allowed; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.muted { color: var(--muted); line-height: 1.7; }
+.eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 2px; color: var(--primary); }
+.stack { display: grid; gap: 15px; }
+.row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 25px; box-shadow: var(--shadow); min-width: 0; }
+
+.btn, .ghost { min-height: 44px; border: 0; border-radius: 13px; padding: 11px 18px; }
+.btn { background: var(--primary); color: var(--on-primary); font-weight: 650; }
+.btn.secondary { background: var(--primary-soft); color: var(--primary); }
+.btn.danger { background: var(--danger-soft); color: var(--danger); }
+.btn:disabled { opacity: 0.5; }
+.ghost { background: transparent; color: var(--muted); padding: 11px 16px; border-radius: var(--radius-sm); }
+.ghost:hover { color: var(--text); }
+.pill { font-size: 11px; border-radius: 100px; padding: 6px 10px;
+  background: var(--primary-soft); color: var(--primary); }
+
+.field { width: 100%; min-height: 44px; padding: 12px 14px; background: var(--panel); color: var(--text);
+  border: 1px solid var(--line); border-radius: var(--radius-sm); }
+.field-label { display: grid; gap: 6px; font-size: 14px; }
+
+.notice { margin: 0; padding: 10px 14px; border-radius: var(--radius-sm);
+  background: var(--primary-soft); color: var(--text); }
+.notice.error { background: var(--danger-soft); color: var(--danger); }
+.empty-state { text-align: center; padding: 24px 8px; }
+.empty-state > span { font-size: 36px; }
+
+.modal { width: min(480px, calc(100vw - 32px)); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 24px; background: var(--bg); color: var(--text); box-shadow: var(--shadow); }
+.modal::backdrop { background: #0006; }
+.modal h2 { margin-top: 0; font-size: 18px; }
+.modal-actions { justify-content: flex-end; margin-top: 20px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}

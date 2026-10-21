@@ -1,0 +1,43 @@
+.mood-view h2, .mood-view h3, .mood-view h4, .mood-view p { margin: 0; }
+.mood-view header { display: grid; gap: 10px; }
+.mood-layout { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 28px; }
+.mood-layout > * { min-width: 0; }
+.mood-heading { justify-content: space-between; }
+.mood-picker { border: 0; padding: 0; margin: 0; min-width: 0; }
+.mood-options { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+.mood-option { position: relative; display: grid; justify-items: center; gap: 8px; border: 1px solid var(--line);
+  border-radius: var(--radius-sm); padding: 14px 4px; cursor: pointer; font-size: 13px; text-align: center; }
+.mood-option input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.mood-option:has(input:focus-visible) { outline: 3px solid var(--focus); outline-offset: 2px; }
+.mood-option.is-selected, .mood-day.is-selected { border-color: var(--primary);
+  background: var(--primary-soft); color: var(--text); }
+.mood-icon { font-size: 28px; }
+.mood-note { resize: vertical; }
+.mood-view .mood-hint { font-size: 12px; line-height: 1.8; }
+.mood-summary { align-content: center; justify-items: center; text-align: center; padding: 28px 20px;
+  border-radius: var(--radius); background: var(--primary-soft); }
+.mood-hero-icon { font-size: 64px; }
+.mood-metrics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px; width: 100%; margin: 12px 0; }
+.mood-metrics > div { display: grid; gap: 6px; }
+.mood-metrics strong { font-size: 32px; color: var(--primary); }
+.mood-metrics span { font-size: 13px; color: var(--muted); }
+.mood-history { border-top: 1px solid var(--line); padding-top: 24px; margin-top: 12px; }
+.mood-calendar { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px; }
+.mood-weekday { text-align: center; color: var(--muted); font-size: 12px; padding: 8px 0; }
+.mood-day { display: grid; gap: 4px; justify-items: center; min-height: 54px; min-width: 0; padding: 7px 0;
+  border: 1px solid var(--line); border-radius: 8px; background: var(--panel); color: var(--text); font-size: 12px; }
+.mood-day:disabled { opacity: .45; }
+.mood-day[aria-current="date"] { text-decoration: underline; text-underline-offset: 3px; }
+.mood-entry { padding: 16px; border-radius: var(--radius-sm); background: var(--bg); }
+.mood-entry p { margin-top: 8px; white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.8; }
+.mood-distribution { display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; font-size: 13px; }
+.mood-bar { height: 6px; border-radius: 6px; background: var(--line); margin-top: 7px; overflow: hidden; }
+.mood-bar > span { display: block; height: 100%; background: var(--primary); border-radius: inherit; }
+@media (max-width: 760px) {
+  .mood-layout { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .mood-summary { padding: 20px 16px; }
+}
+@media (max-width: 400px) {
+  .mood-options { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
